@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Middle Trent · Terrain viewer</title><link rel="stylesheet" href="viewer.css"><script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script></head>
+<body>
+<main>
+ <nav id="sites" aria-label="Choose comparison site"></nav>
+ <header><div><h1 id="name">Loading terrain…</h1><p id="element"></p></div></header>
+ <div class="toolbar">
+  <button id="explore" aria-pressed="false">Enable rotation & zoom</button><button id="top">Plan view</button><button id="reset">Reset</button>
+  <label>Vertical scale <select id="exaggeration"><option value="1">1× true scale</option><option value="2">2×</option><option value="3">3×</option><option value="4">4×</option><option value="5" selected>5×</option><option value="6">6×</option><option value="7">7×</option><option value="8">8×</option><option value="9">9×</option><option value="10">10×</option></select></label>
+  <label><input id="wire" type="checkbox" checked> Wireframe</label>
+ </div>
+ <div id="scene"><div class="scene-head"><span id="areaTitle"></span><div id="scaleBadge">3 × 3 km · height exaggerated 5×</div></div><p id="status" role="status">Loading local terrain data…</p><div id="readout">Point at terrain to inspect the 10 m display surface</div></div>
+ <div class="layers"><label><input id="water" type="checkbox" checked><i class="swatch water"></i>Modern watercourses</label><label><input id="palaeo" type="checkbox" checked><i class="swatch palaeo"></i>ADS palaeochannel records (undated)</label><label><input id="section" type="checkbox" checked><i class="swatch section"></i>Profile</label><label id="boundaryControl" hidden><input id="boundary" type="checkbox" checked><i class="swatch boundary"></i>Modern civil parish (Dec 2025)</label><span class="landmark-key"><i class="landmark-dot"></i><span id="landmark"></span></span><span class="legend"><i></i><span id="range"></span> m OD</span></div>
+ <p id="boundaryCaption" class="small" hidden></p><div class="profile-controls"><label>Section <select id="profile"></select></label><button id="custom">Draw a section: choose A, then B</button><button id="image">Save terrain PNG</button></div>
+ <svg id="chart" viewBox="0 0 900 160" role="img" aria-label="Elevation profile"></svg><p id="profileMeta" class="small"></p>
+ <details hidden><summary aria-label="Expand or collapse reference details"></summary><p id="anchor"></p><p id="metrics"></p><label>Inspect an ADS record <select id="record"></select></label><p id="recordInfo"></p><p class="small">Orange outlines locate recorded features, not a simultaneous network of active channels. Blue lines locate modern river, stream and canal centre-lines; they do not show water depth or channel width.</p></details>
+ <footer>Terrain: Environment Agency LIDAR Composite DTM, 1 m, OGL. Display: 10 m block means. EPSG:27700; heights m OD. Palaeochannels: © Steve Baker (2006), ADS / English Heritage ALSF. Watercourses: © OpenStreetMap contributors, ODbL.<span id="boundaryCredit" hidden> Parish boundary: ONS, December 2025. Contains OS and National Statistics data © Crown copyright and database right 2025.</span></footer>
+</main><script type="module" src="viewer.js?v=20260925-alignment"></script></body></html>
